@@ -116,8 +116,8 @@ ip_sources(${IP} VHDL
     )
 
 ip_link(${IP}
-    uvvm::uvvm_util::util::0.0.1
-    # uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
+    uvvm::uvvm_util::util
+    # uvvm::uvvm_vvc_framework::uvvm_vvc_framework
     )
 
 if(UVVM_BUILD_TESTING)
@@ -136,7 +136,7 @@ if(UVVM_INCLUDE_BITVIS_VIP_AVALON_ST OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
+        uvvm::uvvm_util::util
         )
 
     if(UVVM_BUILD_TESTING)
@@ -158,9 +158,9 @@ if(UVVM_INCLUDE_BITVIS_VIP_AVALON_ST OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
-        uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
-        uvvm::bitvis_vip_avalon_st::bfm::0.0.1
+        uvvm::uvvm_util::util
+        uvvm::uvvm_vvc_framework::uvvm_vvc_framework
+        uvvm::bitvis_vip_avalon_st::bfm
         )
 
     if(UVVM_BUILD_TESTING)
@@ -180,7 +180,7 @@ if(UVVM_INCLUDE_BITVIS_VIP_AXILITE OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
+        uvvm::uvvm_util::util
         )
 
     if(UVVM_BUILD_TESTING)
@@ -204,10 +204,10 @@ if(UVVM_INCLUDE_BITVIS_VIP_AXILITE OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
-        uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
-        uvvm::bitvis_vip_axilite::bfm::0.0.1
-        uvvm::bitvis_vip_scoreboard::vip::0.0.1
+        uvvm::uvvm_util::util
+        uvvm::uvvm_vvc_framework::uvvm_vvc_framework
+        uvvm::bitvis_vip_axilite::bfm
+        uvvm::bitvis_vip_scoreboard::vip
         )
 
     if(UVVM_BUILD_TESTING)
@@ -227,7 +227,7 @@ if(UVVM_INCLUDE_BITVIS_VIP_AXISTREAM OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
+        uvvm::uvvm_util::util
         )
 
     if(UVVM_BUILD_TESTING)
@@ -249,10 +249,10 @@ if(UVVM_INCLUDE_BITVIS_VIP_AXISTREAM OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
-        uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
-        uvvm::bitvis_vip_axistream::bfm::0.0.1
-        uvvm::bitvis_vip_scoreboard::vip::0.0.1
+        uvvm::uvvm_util::util
+        uvvm::uvvm_vvc_framework::uvvm_vvc_framework
+        uvvm::bitvis_vip_axistream::bfm
+        uvvm::bitvis_vip_scoreboard::vip
         )
 
     if(UVVM_BUILD_TESTING)
@@ -279,8 +279,8 @@ if(UVVM_INCLUDE_BITVIS_VIP_CLOCK_GENERATOR OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
-        uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
+        uvvm::uvvm_util::util
+        uvvm::uvvm_vvc_framework::uvvm_vvc_framework
         )
 
     if(UVVM_BUILD_TESTING)
@@ -303,7 +303,7 @@ if(UVVM_INCLUDE_BITVIS_VIP_ERROR_INJECTION OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
+        uvvm::uvvm_util::util
         )
 
     if(UVVM_BUILD_TESTING)
@@ -317,7 +317,7 @@ if(UVVM_INCLUDE_BITVIS_VIP_ERROR_INJECTION OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::bitvis_vip_error_injection::vip::0.0.1
+        uvvm::bitvis_vip_error_injection::vip
         )
 
     if(UVVM_BUILD_TESTING)
@@ -337,7 +337,7 @@ if(UVVM_INCLUDE_BITVIS_VIP_GMII OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
+        uvvm::uvvm_util::util
         )
 
     if(UVVM_BUILD_TESTING)
@@ -362,10 +362,10 @@ if(UVVM_INCLUDE_BITVIS_VIP_GMII OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
-        uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
-        uvvm::bitvis_vip_gmii::bfm::0.0.1
-        uvvm::bitvis_vip_scoreboard::vip::0.0.1
+        uvvm::uvvm_util::util
+        uvvm::uvvm_vvc_framework::uvvm_vvc_framework
+        uvvm::bitvis_vip_gmii::bfm
+        uvvm::bitvis_vip_scoreboard::vip
         )
 
     if(UVVM_BUILD_TESTING)
@@ -386,7 +386,7 @@ if(UVVM_INCLUDE_BITVIS_VIP_GPIO OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
+        uvvm::uvvm_util::util
         )
 
     if(UVVM_BUILD_TESTING)
@@ -409,10 +409,10 @@ if(UVVM_INCLUDE_BITVIS_VIP_GPIO OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
-        uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
-        uvvm::bitvis_vip_gpio::bfm::0.0.1
-        uvvm::bitvis_vip_scoreboard::vip::0.0.1
+        uvvm::uvvm_util::util
+        uvvm::uvvm_vvc_framework::uvvm_vvc_framework
+        uvvm::bitvis_vip_gpio::bfm
+        uvvm::bitvis_vip_scoreboard::vip
         )
 
     if(UVVM_BUILD_TESTING)
@@ -432,7 +432,7 @@ if(UVVM_INCLUDE_BITVIS_VIP_I2C OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
+        uvvm::uvvm_util::util
         )
 
     if(UVVM_BUILD_TESTING)
@@ -455,10 +455,10 @@ if(UVVM_INCLUDE_BITVIS_VIP_I2C OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
-        uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
-        uvvm::bitvis_vip_i2c::bfm::0.0.1
-        uvvm::bitvis_vip_scoreboard::vip::0.0.1
+        uvvm::uvvm_util::util
+        uvvm::uvvm_vvc_framework::uvvm_vvc_framework
+        uvvm::bitvis_vip_i2c::bfm
+        uvvm::bitvis_vip_scoreboard::vip
         )
 
     if(UVVM_BUILD_TESTING)
@@ -478,7 +478,7 @@ if(UVVM_INCLUDE_BITVIS_VIP_RGMII OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
+        uvvm::uvvm_util::util
         )
 
     if(UVVM_BUILD_TESTING)
@@ -504,10 +504,10 @@ if(UVVM_INCLUDE_BITVIS_VIP_RGMII OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
-        uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
-        uvvm::bitvis_vip_rgmii::bfm::0.0.1
-        uvvm::bitvis_vip_scoreboard::vip::0.0.1
+        uvvm::uvvm_util::util
+        uvvm::uvvm_vvc_framework::uvvm_vvc_framework
+        uvvm::bitvis_vip_rgmii::bfm
+        uvvm::bitvis_vip_scoreboard::vip
         )
 
     if(UVVM_BUILD_TESTING)
@@ -527,7 +527,7 @@ if(UVVM_INCLUDE_BITVIS_VIP_SBI OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
+        uvvm::uvvm_util::util
         )
 
     if(UVVM_BUILD_TESTING)
@@ -550,10 +550,10 @@ if(UVVM_INCLUDE_BITVIS_VIP_SBI OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
-        uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
-        uvvm::bitvis_vip_sbi::bfm::0.0.1
-        uvvm::bitvis_vip_scoreboard::vip::0.0.1
+        uvvm::uvvm_util::util
+        uvvm::uvvm_vvc_framework::uvvm_vvc_framework
+        uvvm::bitvis_vip_sbi::bfm
+        uvvm::bitvis_vip_scoreboard::vip
         )
 
     if(UVVM_BUILD_TESTING)
@@ -573,7 +573,7 @@ if(UVVM_INCLUDE_BITVIS_VIP_SPI OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
+        uvvm::uvvm_util::util
         )
 
     if(UVVM_BUILD_TESTING)
@@ -596,10 +596,10 @@ if(UVVM_INCLUDE_BITVIS_VIP_SPI OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
-        uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
-        uvvm::bitvis_vip_spi::bfm::0.0.1
-        uvvm::bitvis_vip_scoreboard::vip::0.0.1
+        uvvm::uvvm_util::util
+        uvvm::uvvm_vvc_framework::uvvm_vvc_framework
+        uvvm::bitvis_vip_spi::bfm
+        uvvm::bitvis_vip_scoreboard::vip
         )
 
     if(UVVM_BUILD_TESTING)
@@ -619,7 +619,7 @@ if(UVVM_INCLUDE_BITVIS_VIP_UART OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
+        uvvm::uvvm_util::util
         )
 
     if(UVVM_BUILD_TESTING)
@@ -646,17 +646,10 @@ if(UVVM_INCLUDE_BITVIS_VIP_UART OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
-        uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
-        uvvm::bitvis_vip_uart::bfm::0.0.1
-        uvvm::bitvis_vip_scoreboard::vip::0.0.1
-        )
-
-    ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
-        uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
-        uvvm::bitvis_vip_uart::bfm::0.0.1
-        uvvm::bitvis_vip_scoreboard::vip::0.0.1
+        uvvm::uvvm_util::util
+        uvvm::uvvm_vvc_framework::uvvm_vvc_framework
+        uvvm::bitvis_vip_uart::bfm
+        uvvm::bitvis_vip_scoreboard::vip
         )
 
     if(UVVM_BUILD_TESTING)
@@ -679,11 +672,11 @@ if(UVVM_INCLUDE_BITVIS_VIP_HVVC_TO_VVC_BRIDGE OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
-        uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
-        uvvm::bitvis_vip_gmii::bfm::0.0.1
-        # uvvm::bitvis_vip_scoreboard::vip::0.0.1
-        # uvvm::bitvis_vip_sbi::vip::0.0.1
+        uvvm::uvvm_util::util
+        uvvm::uvvm_vvc_framework::uvvm_vvc_framework
+        uvvm::bitvis_vip_gmii::bfm
+        # uvvm::bitvis_vip_scoreboard::vip
+        # uvvm::bitvis_vip_sbi::vip
         )
 
     if(UVVM_BUILD_TESTING)
@@ -715,11 +708,11 @@ if(UVVM_INCLUDE_BITVIS_VIP_ETHERNET OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
-        uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
-        uvvm::bitvis_vip_gmii::bfm::0.0.1
-        uvvm::bitvis_vip_scoreboard::vip::0.0.1
-        uvvm::bitvis_vip_hvvc_to_vvc_bridge::vip::0.0.1
+        uvvm::uvvm_util::util
+        uvvm::uvvm_vvc_framework::uvvm_vvc_framework
+        uvvm::bitvis_vip_gmii::bfm
+        uvvm::bitvis_vip_scoreboard::vip
+        uvvm::bitvis_vip_hvvc_to_vvc_bridge::vip
         )
 
     if(UVVM_BUILD_TESTING)
@@ -741,7 +734,7 @@ if(UVVM_INCLUDE_BITVIS_VIP_AXI OR UVVM_INCLUDE_ALL_LIBS)
     add_ip(uvvm::bitvis_vip_axi::vip::0.0.1)
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
+        uvvm::uvvm_util::util
         )
 
     if(UVVM_BUILD_TESTING)
@@ -764,10 +757,10 @@ if(UVVM_INCLUDE_BITVIS_VIP_AXI OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
-        uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
-        uvvm::bitvis_vip_axi::bfm::0.0.1
-        uvvm::bitvis_vip_scoreboard::vip::0.0.1
+        uvvm::uvvm_util::util
+        uvvm::uvvm_vvc_framework::uvvm_vvc_framework
+        uvvm::bitvis_vip_axi::bfm
+        uvvm::bitvis_vip_scoreboard::vip
         )
 
     if(UVVM_BUILD_TESTING)
@@ -789,7 +782,7 @@ if(UVVM_INCLUDE_BITVIS_VIP_SPEC_COV OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
+        uvvm::uvvm_util::util
         )
 
 
@@ -828,10 +821,10 @@ if(UVVM_INCLUDE_BITVIS_VIP_WISHBONE OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
-        uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
-        uvvm::bitvis_vip_wishbone::bfm::0.0.1
-        uvvm::bitvis_vip_scoreboard::vip::0.0.1
+        uvvm::uvvm_util::util
+        uvvm::uvvm_vvc_framework::uvvm_vvc_framework
+        uvvm::bitvis_vip_wishbone::bfm
+        uvvm::bitvis_vip_scoreboard::vip
         )
 
     if(UVVM_BUILD_TESTING)
@@ -854,7 +847,7 @@ if(UVVM_INCLUDE_BITVIS_VIP_IRQC OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
+        uvvm::uvvm_util::util
         )
 
     if(UVVM_BUILD_TESTING)
@@ -869,8 +862,8 @@ if(UVVM_INCLUDE_BITVIS_VIP_IRQC OR UVVM_INCLUDE_ALL_LIBS)
             )
 
         ip_link(${IP}
-            uvvm::bitvis_irqc::vip::0.0.1
-            uvvm::bitvis_vip_sbi::vip::0.0.1
+            uvvm::bitvis_irqc::vip
+            uvvm::bitvis_vip_sbi::vip
             )
 
         modelsim(${IP} VCOM_ARGS -2008 -suppress 1346,1236)
@@ -909,7 +902,7 @@ if(UVVM_INCLUDE_BITVIS_VIP_AVALON_MM OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
+        uvvm::uvvm_util::util
         )
 
     if(UVVM_BUILD_TESTING)
@@ -932,10 +925,10 @@ if(UVVM_INCLUDE_BITVIS_VIP_AVALON_MM OR UVVM_INCLUDE_ALL_LIBS)
         )
 
     ip_link(${IP}
-        uvvm::uvvm_util::util::0.0.1
-        uvvm::uvvm_vvc_framework::uvvm_vvc_framework::0.0.1
-        uvvm::bitvis_vip_avalon_mm::bfm::0.0.1
-        uvvm::bitvis_vip_scoreboard::vip::0.0.1
+        uvvm::uvvm_util::util
+        uvvm::uvvm_vvc_framework::uvvm_vvc_framework
+        uvvm::bitvis_vip_avalon_mm::bfm
+        uvvm::bitvis_vip_scoreboard::vip
         )
 
     if(UVVM_BUILD_TESTING)
