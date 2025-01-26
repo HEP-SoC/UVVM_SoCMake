@@ -17,6 +17,7 @@ CPMAddPackage(
 
 CPMAddPackage(NAME uvvm_socmake
     GIT_REPOSITORY https://github.com/HEP-SoC/UVVM_SoCMake.git
+    GIT_TAG master
     OPTIONS 
         "UVVM_VERSION v2_2024.10.23"
         # Decide which libraries to include from UVVM
