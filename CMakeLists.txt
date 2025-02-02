@@ -99,6 +99,10 @@ ip_sources(${IP} VHDL
     ${uvvm_SOURCE_DIR}/uvvm_vvc_framework/src/ti_vvc_framework_context.vhd
     )
 
+ip_link(${IP}
+    uvvm::uvvm_util::util
+    )
+
 if(UVVM_BUILD_TESTING)
     modelsim(${IP} VCOM_ARGS -2008 -suppress 1346,1236 NO_RUN_TARGET)
 endif()
