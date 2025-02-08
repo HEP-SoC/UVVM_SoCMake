@@ -15,6 +15,7 @@ CPMAddPackage(
     GIT_REPOSITORY "https://github.com/HEP-SoC/SoCMake.git"
     )
 
+set(CPM_uvvm_socmake_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/../../")
 CPMAddPackage(NAME uvvm_socmake
     GIT_REPOSITORY https://github.com/HEP-SoC/UVVM_SoCMake.git
     GIT_TAG master
@@ -26,6 +27,7 @@ CPMAddPackage(NAME uvvm_socmake
         "UVVM_INCLUDE_BITVIS_UART ON"
         "UVVM_INCLUDE_BITVIS_VIP_CLOCK_GENERATOR ON"
     )
+
 
 ###############################################
 ############ CLI options ######################
@@ -55,7 +57,7 @@ ip_link(${IP}
 )
 
 if(SIMULATOR STREQUAL "questa" OR SIMULATOR STREQUAL "modelsim" OR ALL_SIMS)
-    modelsim(${IP} VCOM_ARGS -2008 -suppress 1346,1236)
+    modelsim(${IP} QUIET VHDL_COMPILE_ARGS -2008 -suppress 1346,1236,1246)
 endif()
 
 if(SIMULATOR STREQUAL "vivado_sim" OR ALL_SIMS)
