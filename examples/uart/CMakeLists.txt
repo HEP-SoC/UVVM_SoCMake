@@ -11,7 +11,7 @@ include("../../deps/CPM.cmake")
 # Fetch SoCMake
 CPMAddPackage(
     NAME SoCMake  
-    GIT_TAG develop
+    GIT_TAG 4ace065e
     GIT_REPOSITORY "https://github.com/HEP-SoC/SoCMake.git"
     )
 
@@ -70,8 +70,8 @@ endif()
 if(SIMULATOR STREQUAL "ghdl" OR ALL_SIMS)
     ghdl(${IP}
         STANDARD 08
-        ANALYZE_ARGS -frelaxed-rules -Wno-hide -Wno-shared
-        ELABORATE_ARGS -frelaxed-rules
+        VHDL_COMPILE_ARGS -frelaxed-rules -Wno-hide -Wno-shared
+        ELABORATE_ARGS    -frelaxed-rules
     )
 endif()
 
