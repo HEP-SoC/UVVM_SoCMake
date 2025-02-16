@@ -11,7 +11,7 @@ include("../../deps/CPM.cmake")
 # Fetch SoCMake
 CPMAddPackage(
     NAME SoCMake  
-    GIT_TAG 4ace065e
+    GIT_TAG f8b7c477
     GIT_REPOSITORY "https://github.com/HEP-SoC/SoCMake.git"
     )
 
@@ -30,10 +30,7 @@ CPMAddPackage(NAME uvvm_socmake
 # ###############################################
 #
 # Pass these options with -D<option>=<value> with cmake call, or through cmake-gui
-# option_enum(SIMULATOR "Which simulator to use" "ghdl;questa;modelsim;vivado_sim;all" "ghdl")
-# if(SIMULATOR STREQUAL "all")
-#     set(ALL_SIMS TRUE)
-# endif()
+# option_enum(SIMULATOR "Which simulator to use" "ghdl;questa;modelsim" "ghdl")
 
 
 add_subdirectory(crc)
@@ -55,29 +52,13 @@ ip_link(${IP}
     uvvm::bitvis_vip_clock_generator::vip
     crc_dpi
 )
-#
-# if(SIMULATOR STREQUAL "questa" OR SIMULATOR STREQUAL "modelsim" OR ALL_SIMS)
-    # modelsim(${IP} QUIET VHDL_COMPILE_ARGS -2008 -suppress 1346,1236,1246)
-# endif()
-#
-# if(SIMULATOR STREQUAL "vivado_sim" OR ALL_SIMS)
-#     vivado_sim(${IP} 
-#         XVHDL_ARGS --2008 --relax
-#         XELAB_ARGS --relax
-#     )
-# endif()
-#
-# if(SIMULATOR STREQUAL "ghdl" OR ALL_SIMS)
-    ghdl(${IP}
-        STANDARD 08
-        VHDL_COMPILE_ARGS -frelaxed-rules -Wno-hide -Wno-shared
-        ELABORATE_ARGS    -frelaxed-rules
-        RUN_ARGS          --wave=trace.ghw
-    )
-# endif()
-#
-# # vcs(${IP}
-# #     VHDL_COMPILE_ARGS -vhdl08)
+
+ghdl(${IP}
+    STANDARD 08
+    VHDL_COMPILE_ARGS -frelaxed-rules -Wno-hide -Wno-shared
+    ELABORATE_ARGS    -frelaxed-rules
+    RUN_ARGS          --wave=trace.ghw
+)
 
 help()
 

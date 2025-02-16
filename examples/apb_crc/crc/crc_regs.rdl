@@ -1,0 +1,21 @@
+addrmap crc_regs{
+    name = "CRC";
+    desyrdl_interface = "IBUS";
+
+    reg {
+        field {
+            name = "Write data";
+            hw = r; sw = w;
+            swmod;
+        } crc_in[32];
+    } input_reg @ 0x00;
+
+    reg {
+        field {
+            name = "Read value";
+            hw=w; sw=r;
+        } crc_out[32] = 0;
+    } output_reg @ 0x04;
+
+};
+

@@ -101,9 +101,11 @@ begin
         write_val := i*5;
 
         sbi_write(SBI_VVCT, 1, C_ADDR_WRITE, std_logic_vector(to_signed(write_val, 32)), "WRITE DATA");
+        wait for (5 * C_CLK_PERIOD);       -- for reset to be turned off
         crc_ref_value := crc_vhpidirect(write_val, crc_ref_value);
         sbi_check(SBI_VVCT, 1, C_ADDR_READ,  std_logic_vector(to_signed(crc_ref_value, 32)), "READ data default");
 
+        wait for (5 * C_CLK_PERIOD);       -- for reset to be turned off
         await_completion(SBI_VVCT, 1, 10 * C_CLK_PERIOD);
     end loop;
 

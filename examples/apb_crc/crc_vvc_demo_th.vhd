@@ -44,6 +44,8 @@ architecture struct of crc_vvc_demo_th is
   signal wdata : std_logic_vector(31 downto 0);
   signal rdata : std_logic_vector(31 downto 0);
   signal ready : std_logic;
+  signal rack : std_logic;
+  signal wack : std_logic;
 
   constant C_CLK_PERIOD : time    := 10 ns; -- 100 MHz
   constant C_CLOCK_GEN  : natural := 1;
@@ -55,6 +57,7 @@ begin
   -----------------------------------------------------------------------------
   i_ti_uvvm_engine : entity uvvm_vvc_framework.ti_uvvm_engine;
 
+  ready <= rack or wack;
   -----------------------------------------------------------------------------
   -- Instantiate DUT
   -----------------------------------------------------------------------------
@@ -69,7 +72,10 @@ begin
       wr    => wr,
       rd    => rd,
       wdata => wdata,
-      rdata => rdata
+      rdata => rdata,
+
+      rack => rack,
+      wack => wack
     );
 
   -----------------------------------------------------------------------------
@@ -93,7 +99,7 @@ begin
     );
 
   -- Static '1' ready signal for the SBI VVC
-  ready <= '1';
+  -- ready <= '0';
 
   -- Toggle the reset after 5 clock periods
   p_arst : arst <= '1', '0' after 5 * C_CLK_PERIOD;

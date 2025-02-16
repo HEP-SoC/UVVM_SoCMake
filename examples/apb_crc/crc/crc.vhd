@@ -18,14 +18,10 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-use work.crc_pif_pkg.all;
+-- use work.crc_pif_pkg.all;
+use work.pkg_crc_regs.all;
 
 entity crc is
-  -- generic(
-  --   GC_START_BIT                 : std_logic := '0';
-  --   GC_STOP_BIT                  : std_logic := '1';
-  --   GC_CLOCKS_PER_BIT            : integer   := 16;
-  --   GC_MIN_EQUAL_SAMPLES_PER_BIT : integer   := 15); -- Number of equal samples needed for valid bit, crc samples on every clock
   port(
     -- DSP interface and general control signals
     clk   : in  std_logic;
@@ -35,6 +31,9 @@ entity crc is
     addr  : in  unsigned(2 downto 0);
     wr    : in  std_logic;
     rd    : in  std_logic;
+    rack  : out std_logic;
+    wack  : out std_logic;
+
     wdata : in  std_logic_vector(31 downto 0);
     rdata : out std_logic_vector(31 downto 0) := (others => '0')
   );
@@ -44,44 +43,54 @@ end crc;
 architecture rtl of crc is
 
   -- PIF-core interface
-  signal p2c : t_p2c;                   --
-  signal c2p : t_c2p;                   --
+  signal hwif_in : t_addrmap_crc_regs_in;                   --
+  signal hwif_out : t_addrmap_crc_regs_out;                   --
+
+  signal pi_s_top : t_crc_regs_m2s;
+  signal po_s_top : t_crc_regs_s2m;
 
   signal state_reg   : std_logic_vector(31 downto 0) := (others => '0');
-  signal output_reg  : std_logic_vector(31 downto 0) := (others => '0');
   signal lfsr_state  : std_logic_vector(31 downto 0);
-  signal read_reg    : std_logic_vector(31 downto 0);
+
+  signal rd_ack : std_logic;
+  signal wr_ack : std_logic;
 
 begin
 
-  i_crc_pif : entity work.crc_pif
+  pi_s_top.addr(2 downto 0) <= std_logic_vector(addr);
+  pi_s_top.addr(31 downto 3) <= b"00000000000000000000000000000";
+  pi_s_top.data <= wdata;
+  pi_s_top.rena <= rd;
+  pi_s_top.wena <= wr;
+  rdata <= po_s_top.data;
+
+  rack <= po_s_top.rack;
+  wack <= po_s_top.wack;
+
+  i_crc_regs : entity work.crc_regs
     port map(
-      arst  => arst,                    --
-      clk   => clk,                     --
+      pi_reset  => arst,                    --
+      pi_s_reset  => arst,                    --
+      pi_clock   => clk,                     --
       -- CPU interface
-      cs    => cs,                      --
-      addr  => addr,                    --
-      wr    => wr,                      --
-      rd    => rd,                      --
-      wdata => wdata,                   --
-      rdata => rdata,                   --
-      --
-      p2c   => p2c,                     --
-      c2p   => c2p                      --
+
+      pi_s_top => pi_s_top,
+      po_s_top => po_s_top,
+
+      pi_addrmap   => hwif_in,                     --
+      po_addrmap   => hwif_out                      --
     );
 
   i_crc_core : entity work.crc_core
     port map(
       -- PIF-core interface
       crcIn => state_reg,
-      data  => p2c.wo_write,
+      data  => hwif_out.input_reg.crc_in.data(7 downto 0),
       crcOut => lfsr_state
-      -- p2c  => p2c,                      --
-      -- c2p  => c2p                      --
     );
 
   -- Assign the computed CRC to the read data output (equivalent to assign hwif_out.read.data.next)
-  c2p.aro_read <= read_reg;
+  hwif_in.output_reg.crc_out.data <= state_reg;
 
   -- Register update logic (equivalent to always @(posedge clk) in Verilog)
   process (clk)
@@ -89,14 +98,10 @@ begin
     if rising_edge(clk) then
       if arst = '1' then  -- Active-low reset
         state_reg  <= (others => '0');
-        output_reg <= (others => '0');
-        read_reg   <= (others => '0');
       else
-        if p2c.awo_write_we = '1' then
+        if hwif_out.input_reg.crc_in.swmod = '1' then
           state_reg  <= lfsr_state;
-          output_reg <= lfsr_state;
         end if;
-        read_reg <= lfsr_state;
       end if;
     end if;
   end process;
