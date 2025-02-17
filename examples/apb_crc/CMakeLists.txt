@@ -11,7 +11,7 @@ include("../../deps/CPM.cmake")
 # Fetch SoCMake
 CPMAddPackage(
     NAME SoCMake  
-    GIT_TAG f8b7c477
+    GIT_TAG b9f4847c
     GIT_REPOSITORY "https://github.com/HEP-SoC/SoCMake.git"
     )
 

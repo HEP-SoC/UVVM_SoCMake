@@ -18,4 +18,3 @@ addrmap crc_regs{
     } output_reg @ 0x04;
 
 };
-

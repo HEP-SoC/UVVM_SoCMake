@@ -1,4 +1,3 @@
-set(CPM_SoCMake_SOURCE "/tools/SoCMake/")
 cmake_minimum_required(VERSION 3.25)
 project(uart_vvc_demo_tb NONE)
 
@@ -12,7 +11,7 @@ include("../../deps/CPM.cmake")
 # Fetch SoCMake
 CPMAddPackage(
     NAME SoCMake  
-    GIT_TAG f8b7c477
+    GIT_TAG b9f4847c
     GIT_REPOSITORY "https://github.com/HEP-SoC/SoCMake.git"
     )
 

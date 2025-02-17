@@ -735,15 +735,16 @@ if(UVVM_INCLUDE_BITVIS_VIP_AXI OR UVVM_INCLUDE_ALL_LIBS)
         ${uvvm_SOURCE_DIR}/bitvis_vip_axi/src/axi_bfm_pkg.vhd
         )
 
-    add_ip(uvvm::bitvis_vip_axi::vip::0.0.1)
-
     ip_link(${IP}
         uvvm::uvvm_util::util
         )
 
+
     if(UVVM_BUILD_TESTING)
         modelsim(${IP} VCOM_ARGS -2008 -suppress 1346,1236 NO_RUN_TARGET)
     endif()
+
+    add_ip(uvvm::bitvis_vip_axi::vip::0.0.1)
 
     ip_sources(${IP} VHDL
         ${uvvm_SOURCE_DIR}/bitvis_vip_axi/src/transaction_pkg.vhd
