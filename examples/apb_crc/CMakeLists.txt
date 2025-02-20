@@ -31,7 +31,11 @@ CPMAddPackage(NAME uvvm_socmake
 #
 # Pass these options with -D<option>=<value> with cmake call, or through cmake-gui
 # option_enum(SIMULATOR "Which simulator to use" "ghdl;questa;modelsim" "ghdl")
+option_boolean(SIM_TRACE "Create a waveform trace file" OFF)
 
+if(SIM_TRACE)
+    set(GHDL_TRACE_ARG --wave=trace.ghw)
+endif()
 
 add_subdirectory(crc)
 add_subdirectory(crc_dpi)
@@ -57,7 +61,7 @@ ghdl(${IP}
     STANDARD 08
     VHDL_COMPILE_ARGS -frelaxed-rules -Wno-hide -Wno-shared
     ELABORATE_ARGS    -frelaxed-rules
-    RUN_ARGS          --wave=trace.ghw
+    RUN_ARGS          ${GHDL_TRACE_ARG}
 )
 
 help()
